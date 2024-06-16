@@ -1,0 +1,31 @@
+use Test;
+use Color::Palette;
+use Color;
+
+my $gpl = q:to/END/;
+GIMP Palette
+Name: foo bar
+1 2 3 b
+3 2 1 a
+1 2 3 a
+3 2 1 b
+3 2 1 d
+1 2 3 c
+END
+
+my $p = Color::Palette::from-gpl($gpl);
+
+ok $p, 'got palette';
+
+is-deeply
+  $p.sort(:by<rgb>).unique(:by<color>).colors.map(*.color.Str),
+  <#010203 #030201>,
+  'deduplicated by color';
+
+is-deeply
+  $p.sort(:by<name>).unique(:by<name>).colors.map(*.name),
+  <a b c d>,
+  'deduplicated by name';
+
+done-testing;
+

@@ -1,0 +1,29 @@
+use Test;
+use Color::Palette;
+use Color;
+
+my $gpl = q:to/END/;
+GIMP Palette
+Name: foo bar
+Columns: 1000
+
+# color without name
+1 2 3
+
+# color with name
+10 20 30 funky color
+END
+
+my $p = Color::Palette::from-gpl($gpl);
+
+ok $p, 'got palette';
+
+is $p.name, 'foo bar', 'got palette name';
+is $p.columns, 1000, 'got columns';
+is $p.colors.Int, 2, 'got 2 colors';
+is $p.colors[0].color, Color.new(1, 2, 3), '1st color correct';
+is $p.colors[1].color, Color.new(10, 20, 30), '2nd color correct';
+is $p.colors[0].name, Str:U, '1st color w/o name';
+is $p.colors[1].name, 'funky color', '2nd color has name';
+
+done-testing;

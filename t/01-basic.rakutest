@@ -1,0 +1,6 @@
+use Test;
+use Color::Palette;
+
+pass "replace me";
+
+done-testing;

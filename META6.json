@@ -1,0 +1,25 @@
+{
+  "auth": "zef:jkramer",
+  "authors": [
+    "Jonas Kramer"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "blah blah blah",
+  "license": "Artistic-2.0",
+  "name": "Color::Palette",
+  "perl": "6.d",
+  "provides": {
+    "Color::Palette": "lib/Color/Palette.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}

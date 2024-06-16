@@ -1,0 +1,29 @@
+use Test;
+use Color::Palette;
+use Color;
+
+my $gpl = q:to/END/;
+GIMP Palette
+Name: foo bar
+END
+
+my $p = Color::Palette::from-gpl($gpl);
+
+ok $p, 'got empty palette';
+
+$p.add-color(Color.new(1, 2, 3), '123');
+
+is $p.colors.Int, 1, '1 color';
+
+$p.add-color(Color.new(3, 2, 1));
+
+is $p.colors.Int, 2, '2 colors';
+
+is $p.colors[0].color.Str, '#010203', '1st color correct';
+is $p.colors[1].color.Str, '#030201', '2nd color correct';
+is $p.colors[0].name, '123', '1st color name';
+is $p.colors[1].name, Str, '2nd color name';
+
+done-testing;
+
+

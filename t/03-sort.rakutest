@@ -1,0 +1,38 @@
+use Test;
+use Color::Palette;
+use Color;
+
+my $gpl = q:to/END/;
+GIMP Palette
+Name: foo bar
+1 2 3 b
+1 1 3 c
+1 2 1
+1 1 4 a
+END
+
+my $p = Color::Palette::from-gpl($gpl);
+
+ok $p, 'got palette';
+
+is-deeply
+  $p.sort(:by<rgb>).colors.map(*.color.Str),
+  <#010103 #010104 #010201 #010203>,
+  'sorted by rgb';
+
+is-deeply
+  $p.sort(:by<rgb>, :reverse).colors.map(*.color.Str),
+  <#010103 #010104 #010201 #010203>.reverse,
+  'reverse';
+
+is-deeply
+  $p.sort(:by<hsv>).colors.map(*.color.Str),
+  <#010201 #010203 #010103 #010104>,
+  'sorted by hsv';
+
+is-deeply
+  $p.sort(:by<name>).colors.map(*.name),
+  (Str:U, 'a', 'b', 'c'),
+  'sorted by name';
+
+done-testing;
