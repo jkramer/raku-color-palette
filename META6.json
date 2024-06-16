@@ -6,8 +6,9 @@
   "build-depends": [
   ],
   "depends": [
+    "Color"
   ],
-  "description": "blah blah blah",
+  "description": "Module for working with color palettes.",
   "license": "Artistic-2.0",
   "name": "Color::Palette",
   "perl": "6.d",
