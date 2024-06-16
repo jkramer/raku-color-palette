@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/jkramer/raku-color-palette/actions/workflows/test.yml/badge.svg)](https://github.com/jkramer/raku-color-palette/actions)
+[![Actions Status](https://github.com/jkramer/raku-color-palette/actions/workflows/linux.yml/badge.svg)](https://github.com/jkramer/raku-color-palette/actions) [![Actions Status](https://github.com/jkramer/raku-color-palette/actions/workflows/macos.yml/badge.svg)](https://github.com/jkramer/raku-color-palette/actions) [![Actions Status](https://github.com/jkramer/raku-color-palette/actions/workflows/windows.yml/badge.svg)](https://github.com/jkramer/raku-color-palette/actions)
 
 NAME
 ====
