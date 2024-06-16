@@ -180,11 +180,11 @@ relevant when generating GPL files for use in GIMP).
 
 =head1 METHODS / SUBS
 
-=head2 C<<Color::Palette::from-gpl(Str:D $input)>>
+=head2 C<<::from-gpl(Str:D $input)>>
 
 =begin code :lang<raku>
 
-my $palette = ::from-gpl('palette.gpl'.IO.slurp);
+my $palette = Color::Palette::from-gpl('palette.gpl'.IO.slurp);
 
 =end code
 

@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/jkramer/raku-color-palette/actions/workflows/test.yml/badge.svg)](https://github.com/jkramer/raku-color-palette/actions)
+
 NAME
 ====
 
@@ -58,11 +60,11 @@ Specifies the number of columns to display the palette on in GIMP (only relevant
 METHODS / SUBS
 ==============
 
-`Color::Palette::from-gpl(Str:D $input)`
-----------------------------------------
+`::from-gpl(Str:D $input)`
+--------------------------
 
 ```raku
-my $palette = ::from-gpl('palette.gpl'.IO.slurp);
+my $palette = Color::Palette::from-gpl('palette.gpl'.IO.slurp);
 ```
 
 Creates and returns a `Color::Palette` object with the contents parsed from the given input string in GPL format.
